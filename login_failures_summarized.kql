@@ -1,0 +1,12 @@
+// Search the SignInLogs table for any result type that isn't 0 
+// (anything but a success meaning errors, warnings, failures, etc),
+// count the results per user and summarize those counts per user
+// over some timespan.
+let timeSpan = 1d;
+let connectionsThreshold = 10;
+SigninLogs
+| where TimeGenerated > ago(timeSpan)
+| where ResultType != "0"
+| summarize FailedConnectionsCount = count() by bin(TimeGenerated, timeSpan), UserPrincipalName
+| sort by FailedConnectionsCount
+| where FailedConnectionsCount >= connectionsThreshold
