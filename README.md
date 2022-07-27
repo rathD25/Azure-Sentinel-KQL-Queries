@@ -1,5 +1,5 @@
 # Sentinel-KQL-Queries
-Just some KQL queries I wrote or helped write recently.
+Just some KQL queries I wrote/helped write recently.
 Queries are:
 - ASR Rules Audit: Query the DeviceEvents table for Attack Surface Reduction (ASR) rules set to *audit* mode.
 - ASR Rules Block: Query the DeviceEvents table for Attack Surface Reduction (ASR) rules set to *block* mode.
