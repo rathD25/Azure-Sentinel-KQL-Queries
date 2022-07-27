@@ -1,4 +1,4 @@
-# Sentinel-KQL-Queries
+# Azure Sentinel KQL Queries
 Just some KQL queries I wrote/helped write recently.
 Queries are:
 - ASR Rules Audit: Query the DeviceEvents table for Attack Surface Reduction (ASR) rules set to *audit* mode.
