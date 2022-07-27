@@ -1,0 +1,9 @@
+// Calculate the uptimes of "Systems" (as opposed to all machines) and sort by longest
+// Useful for quickly determining what servers need to be looked at in terms of 
+// updating and/ or restarting
+Perf
+| where ObjectName == "System" and CounterName == "System Up Time"
+| extend UpTime = CounterValue * 1s
+| project TimeGenerated,Computer,UpTime,InstanceName
+| summarize arg_max(TimeGenerated, *) by Computer
+| order by UpTime desc
